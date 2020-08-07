@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Course overview + the shell"
+title: "수업 개요 + 셸(SHELL)"
 date: 2019-01-13
 ready: true
 video:
@@ -8,92 +8,40 @@ video:
   id: Z56Jmr9Z34Q
 ---
 
-# Motivation
+# 이 수업에 관하여
 
-As computer scientists, we know that computers are great at aiding in
-repetitive tasks. However, far too often, we forget that this applies
-just as much to our _use_ of the computer as it does to the computations
-we want our programs to perform. We have a vast range of tools
-available at our fingertips that enable us to be more productive and
-solve more complex problems when working on any computer-related
-problem. Yet many of us utilize only a small fraction of those tools; we
-only know enough magical incantations by rote to get by, and blindly
-copy-paste commands from the internet when we get stuck.
+컴퓨터 과학을 공부하는 사람으로서, 우리는 컴퓨터가 반복적인 일을 처리하는데 능숙하다는 것을 알고 있습니다. 하지만 우리는 종종 효율적인 반복 처리가 프로그램 상에서만 아니라 컴퓨터 사용 자체에도 적용할 수 있다는 것을 간과합니다. 우리는 컴퓨터 자체와 관련된 문제를 해결할 때 더 생산적이고 복잡한 문제를 해결할 수 있는 다양한 도구들을 가지고 있습니다. 그러나 많은 사람들이 이 도구들을 활용할 줄 모르고, 주입식 교육을 통한 명령어들과 인터넷에서 복붙(복사 후 붙여넣기)만 활용하고 있습니다.
 
-This class is an attempt to address this.
+우리는 이 수업을 통해 여러분들 들어봤을 법한 도구를 활용하는 방법을 가르치고, 쓸만한 도구들을 소개하고, 당신이 스스로 더 많은 도구를 탐구하고(무언가를 만들거나!) 관심을 가지길 바랍니다. 이 지식들은 통상적인 컴퓨터 공학 수업에서는 다루지 않을 내용일 것입니다.
 
-We want to teach you how to make the most of the tools you know, show
-you new tools to add to your toolbox, and hopefully instill in you some
-excitement for exploring (and perhaps building) more tools on your own.
-This is what we believe to be the missing semester from most Computer
-Science curricula.
+# 강의 구조
 
-# Class structure
+ 수업은 11개의 1시간 강의로 이루어져 있습니다. 각 강의는 [특정 주제](/2020/)에 대해 집중적으로 다룹니다. 강의는 대체로 독립적이지만 수업을 진행하면서 이전 강의 내용에 익숙하다고 가정할 예정입니다. 온라인 강의 노트가 있지만 영상 속에서 다루는 콘텐츠가 더 많을 것입니다. (예 : 메모에 없을 수도 있는 데모)
 
-The class consists of 11 1-hour lectures, each one centering on a
-[particular topic](/2020/). The lectures are largely independent,
-though as the semester goes on we will presume that you are familiar
-with the content from the earlier lectures. We have lecture notes
-online, but there will be a lot of content covered in class (e.g. in the
-form of demos) that may not be in the notes. We will be recording
-lectures and posting the recordings online.
+11개의 1시간 강의에 대한 많은 것들을 다루려고 하기 때문에 강의는 상당히 빽빽합니다. 각 강의에는 강의의 핵심을 파악하는 일련의 연습이 포함되어 있습니다. 이 연습은 강의 내용을 본인의 페이스로 배울 수 있게합니다. 온라인으로 수업에 참석하고 있다면, [missing-semester@mit.edu](mailto:missing-semester@mit.edu)에 질문을 보내세요
 
-We are trying to cover a lot of ground over the course of just 11 1-hour
-lectures, so the lectures are fairly dense. To allow you some time to
-get familiar with the content at your own pace, each lecture includes a
-set of exercises that guide you through the lecture's key points. After
-each lecture, we are hosting office hours where we will be present to
-help answer any questions you might have. If you are attending the class
-online, you can send us questions at
-[missing-semester@mit.edu](mailto:missing-semester@mit.edu).
+시간이 제한되어 있기 때문에 모든 세부 사항을 다룰 수 없습니다. 그래도 가급적 여러분들이 관심있을 도구와 주제를 다루려고 합니다. 하지만 특별히 좋아하는 것이 있다면, 주저하지 말고 우리에게 제안해주세요!
 
-Due to the limited time we have, we won't be able to cover all the tools
-in the same level of detail a full-scale class might. Where possible, we
-will try to point you towards resources for digging further into a tool
-or topic, but if something particularly strikes your fancy, don't
-hesitate to reach out to us and ask for pointers!
+# 주제 1: 셸(The Shell)
 
-# Topic 1: The Shell
+## 셸(Shell)은 무엇인가?
 
-## What is the shell?
+요즘 컴퓨터에는 명령을 제공하기 위한 다양한 인터페이스가 있습니다. 화려한 그래픽 사용자 인터페이스, 음성 인터페이스 및 AR / VR 등 어디에나 있습니다. 이들은 80%의 사용 사례에 매우 적합하지만, 종종 그들이할 수 있는 것에 근본적으로 제한됩니다. 당신은 거기에 없는 버튼을 누르거나 프로그래밍되지 않은 음성 명령을 내릴 수 없습니다. 컴퓨터가 제공하는 도구를 최대한 활용하려면 구식 방식인 텍스트 인터페이스를 사용해야합니다. 그것이 셸(Shell)입니다.
 
-Computers these days have a variety of interfaces for giving them
-commands; fancyful graphical user interfaces, voice interfaces, and
-even AR/VR are everywhere. These are great for 80% of use-cases, but
-they are often fundamentally restricted in what they allow you to do —
-you cannot press a button that isn't there or give a voice command that
-hasn't been programmed. To take full advantage of the tools your
-computer provides, we have to go old-school and drop down to a textual
-interface: The Shell.
+당신이 접근 가능한 거의 모든 플랫폼에는 한 형태로 셸이 있고, 그 중 다수의 플랫폼에는 선택적일 수 있는 몇 개의 셸이 있습니다. 세부 사항이 다양할 수 있지만 핵심은 거의 동일합니다. 프로그램을 실행하고 입력을 제공하며 반 구조화된 방식으로 출력을 검사할 수 있습니다.
 
-Nearly all platforms you can get your hand on has a shell in one form or
-another, and many of them have several shells for you to choose from.
-While they may vary in the details, at their core they are all roughly
-the same: they allow you to run programs, give them input, and inspect
-their output in a semi-structured way.
+이 강의에서는 bash라고 불리는 셸로 수업을 진행할 것입니다. 이것은 가장 널리 사용되는 셸 중 하나이며, 구문은 다른 많은 셸에서 볼 수 있는 것과 유사합니다. 셸 _프롬프트(prompt)_ (명령을 입력 할 수있는 곳)를 열려면 먼저 _터미널(terminal)_ 이 필요합니다. 여러분들의 컴퓨터에는 기본적으로 설치가 돼있거나, 없어도 설치가 매우 쉬울 것입니다.
 
-In this lecture, we will focus on the Bourne Again SHell, or "bash" for
-short. This is one of the most widely used shells, and its syntax is
-similar to what you will see in many other shells. To open a shell
-_prompt_ (where you can type commands), you first need a _terminal_.
-Your device probably shipped with one installed, or you can install one
-fairly easily.
+## 셸을 사용하는 방법
 
-## Using the shell
-
-When you launch your terminal, you will see a _prompt_ that often looks
+터미널(terminal)을 키게 되면 다음과 같은 _프롬프트(prompt)_ 를 볼 수 있을 것입니다.
 a little like this:
 
 ```console
 missing:~$ 
 ```
 
-This is the main textual interface to the shell. It tells you that you
-are on the machine `missing` and that your "current working directory",
-or where you currently are, is `~` (short for "home"). The `$` tells you
-that you are not the root user (more on that later). At this prompt you
-can type a _command_, which will then be interpreted by the shell. The
-most basic command is to execute a program:
+이것은 셸의 기본 텍스트 인터페이스입니다. 이것은 당신이 지금 `missing`이란 기계에 있고 당신의 "현재의 작업 디렉토리"또는 당신이 현재 어디에 있는지, 또는 `~`(홈 디렉토리)를 표시합다. `$`는 당신이 루트 사용자가 아니라는 것을 알려줍니다 (나중에 더 자세히). 이 프롬프트에서 명령을 입력할 수 있으며,이 명령은 셸에 의해 해석됩니다. 가장 기본적인 명령은 프로그램을 실행하는 것입니다.
 
 ```console
 missing:~$ date
@@ -101,34 +49,16 @@ Fri 10 Jan 2020 11:49:31 AM EST
 missing:~$ 
 ```
 
-Here, we executed the `date` program, which (perhaps unsurprisingly)
-prints the current date and time. The shell then asks us for another
-command to execute. We can also execute a command with _arguments_:
+`date`라는 프로그램을 호출하면, 현재 날짜와 시간을 출력합니다. 그 후에 셸을 통해 다른 명령을 내릴 수 있습니다. 또한 명령과 인자(argument)를 함께 입력할 수도 있습니다.
 
 ```console
 missing:~$ echo hello
 hello
 ```
 
-In this case, we told the shell to execute the program `echo` with the
-argument `hello`. The `echo` program simply prints out its arguments.
-The shell parses the command by splitting it by whitespace, and then
-runs the program indicated by the first word, supplying each subsequent
-word as an argument that the program can access. If you want to provide
-an argument that contains spaces or other special characters (e.g., a
-directory named "My Photos"), you can either quote the argument with `'`
-or `"` (`"My Photos"`), or escape just the relevant characters with `\`
-(`My\ Photos`).
+이 경우엔 우리가 셸에게 `echo`라는 프로그램을 `hello`라는 인자와 호출하도록 명령한 것입니다. `echo` 프로그램은 단순하게 인자를 출력합니다. 셸은 명령을 띄어쓰기로 분할하여 첫 번째 단어로 표시된 프로그램을 실행하고, 각 후속 단어를 프로그램이 액세스할 수 있는 인수로 제공합니다. 만약 띄어쓰기나 특수문자를 인자에 포함시키고 싶다면 `'`나`"`로 둘러싸거나(예 : `"My Photos"`), 혹은 띄어쓰기 앞에 `\`를 넣어 표기해줄 수 있습니다.(예 : `My\ Photos`)
 
-But how does the shell know how to find the `date` or `echo` programs?
-Well, the shell is a programming environment, just like Python or Ruby,
-and so it has variables, conditionals, loops, and functions (next
-lecture!). When you run commands in your shell, you are really writing a
-small bit of code that your shell interprets. If the shell is asked to
-execute a command that doesn't match one of its programming keywords, it
-consults an _environment variable_ called `$PATH` that lists which
-directories the shell should search for programs when it is given a
-command:
+하지만 어떻게 셸이 `date`나 `echo` 프로그램을 찾을 수 있을까요? 셸은 파이썬이나 루비처럼 프로그래밍 환경이고, 그래서 변수, 조건부, 루프, 기능(다음 강의!)을 가지고 있습니다. 셸에서 명령을 실행한다는 것은, 실제로는 셸 인터프리터에다가 짧은 코드를 작성하는 것이라고 볼 수 있습니다. 셸이 명령을 실행하도록 요청되면 명령을 받을 때 프로그램을 검색해야하는 디렉토리를 나열하는 `$PATH`라는 환경 변수에 접근합니다.
 
 
 ```console
@@ -140,26 +70,11 @@ missing:~$ /bin/echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ```
 
-When we run the `echo` command, the shell sees that it should execute
-the program `echo`, and then searches through the `:`-separated list of
-directories in `$PATH` for a file by that name. When it finds it, it
-runs it (assuming the file is _executable_; more on that later). We can
-find out which file is executed for a given program name using the
-`which` program. We can also bypass `$PATH` entirely by giving the
-_path_ to the file we want to execute.
+`echo` 명령을 실행하면 셸은 `echo`라는 프로그램을 찾아서 실행해야된다는 것을 보고, `$PATH`의 `:`로 분리된 디렉토리 목록을 검색합니다. 만약 발견하고 실행가능하다면 실행합니다. `which` 프로그램을 사용하여 주어진 프로그램 이름에 대해 실행되는 파일을 찾을 수 있습니다. 우리는 또한 우리가 실행하고자 하는 파일에 대한 경로를 제공함으로써 `$PATH`를 완전히 우회할 수 있습니다.
 
-## Navigating in the shell
+## 셸에서 이동하기
 
-A path on the shell is a delimited list of directories; separated by `/`
-on Linux and macOS and `\` on Windows. On Linux and macOS, the path `/`
-is the "root" of the file system, under which all directories and files
-lie, whereas on Windows there is one root for each disk partition (e.g.,
-`C:\`). We will generally assume that you are using a Linux filesystem
-in this class. A path that starts with `/` is called an _absolute_ path.
-Any other path is a _relative_ path. Relative paths are relative to the
-current working directory, which we can see with the `pwd` command and
-change with the `cd` command. In a path, `.` refers to the current
-directory, and `..` to its parent directory:
+셸의 경로는 구분 문자로 구분돼있습니다. Linux 및 macOS는 `/`로, Windows에서는 `\`로 구분합니다. Linux와 macOS에서는 `/`가 파일 시스템의 '루트(root)'지만, Windows는 각 디스크 파티션에 대한 루트가 있습니다.(예: `C:\`) 이 수업 및 대부분의 수업들은 여러분들이 Linux 파일 시스템을 사용한다고 가정하고 진행합니다. `/`로 시작하는 경로들은 절대(absolute) 경로라고 부릅니다. 다른 경로들은 상대(relative) 경로라고 부릅니다. 상대 경로는 최근 작업 디렉토리에 상대적입니다. 최근 작업 디렉토리는 `pwd`로 볼 수 있고, `cd`로 디렉토리를 이동할 수 있습니다. 경로 표시에서 `.`는 현재 디렉토리를, `..`는 상위 디렉토리(parent directory)를 뜻합니다.
 
 ```console
 missing:~$ pwd
@@ -180,15 +95,11 @@ missing:~$ ../../bin/echo hello
 hello
 ```
 
-Notice that our shell prompt kept us informed about what our current
-working directory was. You can configure your prompt to show you all
-sorts of useful information, which we will cover in a later lecture.
+우리의 셸이 현재 작업 디렉토리가 어디인지 알려준다는 것을 명심하세요. 당신은 여러 종류의 유용한 정보를 보여주는 당신만의 프롬프트를 구성할 수 있습니다. 이것에 대한 내용은 나중 강의에서 다루겠습니다.
 
-In general, when we run a program, it will operate in the current
-directory unless we tell it otherwise. For example, it will usually
-search for files there, and create new files there if it needs to.
+기본적으로 프로그램을 실행하면 현재 디렉토리에서 작동합니다. 예를 들어, 일반적으로 어디선가 파일을 검색한 후에 파일을 만들면, 그 장소에 파일이 만들어집니다.
 
-To see what lives in a given directory, we use the `ls` command:
+주어진 디렉토리에 어떤 것들이 있는지 보기 위해서는 `ls`명령을 사용합니다.
 
 ```console
 missing:~$ ls
@@ -205,12 +116,7 @@ home
 ...
 ```
 
-Unless a directory is given as its first argument, `ls` will print the
-contents of the current directory. Most commands accept flags and
-options (flags with values) that start with `-` to modify their
-behavior. Usually, running a program with the `-h` or `--help` flag
-(`/?` on Windows) will print some help text that tells you what flags
-and options are available. For example, `ls --help` tells us:
+디렉토리가 첫 번째 인수로 주어지지 않는 한, `ls`는 현재 디렉토리의 내용을 출력할 것입니다. 대부분의 명령은 행동을 수정하기 위해 시작되는 플래그와 옵션(값이 있는 플래그)을 쓸 수 있습니다. 보통 `-h` 또는 `--help` 플래그(/? Windows에서)는 사용 가능한 플래그와 옵션을 알려주는 도움말 텍스트를 인쇄한다. 예를 들어, `ls --help`는 우리에게 다음과 같은 의미가 있습니다.
 
 ```
   -l                         use a long listing format
@@ -221,45 +127,21 @@ missing:~$ ls -l /home
 drwxr-xr-x 1 missing  users  4096 Jun 15  2019 missing
 ```
 
-This gives us a bunch more information about each file or directory
-present. First, the `d` at the beginning of the line tells us that
-`missing` is a directory. Then follow three groups of three characters
-(`rwx`). These indicate what permissions the owner of the file
-(`missing`), the owning group (`users`), and everyone else respectively
-have on the relevant item. A `-` indicates that the given principal does
-not have the given permission. Above, only the owner is allowed to
-modify (`w`) the `missing` directory (i.e., add/remove files in it). To
-enter a directory, a user must have "search" (represented by "execute":
-`x`) permissions on that directory (and its parents). To list its
-contents, a user must have read (`r`) permissions on that directory. For
-files, the permissions are as you would expect. Notice that nearly all
-the files in `/bin` have the `x` permission set for the last group,
-"everyone else", so that anyone can execute those programs.
+이것은 각 파일이나 디렉토리 현재에 대한 더 많은 정보를 제공합니다. 첫째, 줄의 시작 부분에 있는 `d`는 `missing`이 디렉토리임을 나타냅니다. 그런 다음 세 개의 문자 (`rwx`)의 세 그룹이 따라옵니다. 이들은 파일 소유자 (`missing`), 소유 그룹 (`users`), 다른 모든 사람들이 관련 항목에 대해 각각 권한을 가지고 있는지를 나타냅니다. `-`는 그 자리의 권한이 없다는 것을 나타냅니다. 위의 경우 소유자만 `missing` 디렉토리 (즉, 파일 추가 / 제거)를 수정(`w`) 할 수 있습니다. 디렉토리를 입력하려면 사용자가 해당 디렉토리 (및 부모)에 대한 "검색"( "execute"의 약자인 `x`로 표현 됨) 권한을 가져야합니다. 콘텐츠를 나열하려면 사용자가 디렉토리에 대한 읽기(`r`) 권한이 있어야 합니다. 파일의 경우도 마찬가지입니다.`/bin`의 거의 모든 파일에는 마지막 그룹인 "다른 모든 사람"에 대한 `x` 권한 세트가 있어 모든 사람이 해당 프로그램을 실행할 수 있습니다.
 
-Some other handy programs to know about at this point are `mv` (to
-rename/move a file), `cp` (to copy a file), and `mkdir` (to make a new
-directory).
+다른 자주 쓰이면서도 꼭 알아야 하는 프로그램으로는 `mv`(이름 변경, 파일 이동)와 `cp`(파일 복사) 그리고 `mkdir`(새 경로 만들기)가 있습니다.
 
-If you ever want _more_ information about a program's arguments, inputs,
-outputs, or how it works in general, give the `man` program a try. It
-takes as an argument the name of a program, and shows you its _manual
-page_. Press `q` to exit.
+어떤 프로그램의 인자, 입력, 출력 또는 일반적으로 어떻게 작동하는지에 대한 더 많은 정보를 원한다면 `man`(manual의 약자) 프로그램을 실행해보세요. 그것은 하나의 인자로 프로그램 이름을 사용하고 해당 프로그램의 매뉴얼 페이지를 보여줍니다. `q`를 누르면 종료합니다.
 
 ```console
 missing:~$ man ls
 ```
 
-## Connecting programs
+## 프로그램 연결하기
 
-In the shell, programs have two primary "streams" associated with them:
-their input stream and their output stream. When the program tries to
-read input, it reads from the input stream, and when it prints
-something, it prints to its output stream. Normally, a program's input
-and output are both your terminal. That is, your keyboard as input and
-your screen as output. However, we can also rewire those streams!
+셸에서의 프로그램은 입력 스트립과 출력 스트림을 보유하고 있습니다. 프로그램이 입력을 읽을 때는 입력 스트림에서 읽고, 출력할 때는 출력 스트림으로 출력합니다. 일반적으로 프로그램의 입력과 출력은 모두 당신의 터미널에서 진행합니다. 즉, 키보드로 입력을 하고, 화면으로 출력합니다. 하지만 이 스트립을 변경할 수가 있습니다.
 
-The simplest form of redirection is `< file` and `> file`. These let you
-rewire the input and output streams of a program to a file respectively:
+가장 간단한 형태로 경로를 재설정하는 방법은 `< 파일`과 `> 파일`입니다. 이것은 여러분들이 입력과 출력 스트림을 각각 변경할 수 있게 합니다.
 
 ```console
 missing:~$ echo hello > hello.txt
@@ -272,10 +154,7 @@ missing:~$ cat hello2.txt
 hello
 ```
 
-You can also use `>>` to append to a file. Where this kind of
-input/output redirection really shines is in the use of _pipes_. The `|`
-operator lets you "chain" programs such that the output of one is the
-input of another:
+`>>`를 통해서 파일에 추가를 할 수도 있습니다. 이런 종류의 입출력 경로 재설정이 가장 유용하게 쓰이는 곳은  '파이프'를 구성할 때입니다. `|` 연산자는 프로그램들 간의 체인을 만들어줄 때 활용합니다.
 
 ```console
 missing:~$ ls -l / | tail -n1
@@ -284,36 +163,21 @@ missing:~$ curl --head --silent google.com | grep --ignore-case content-length |
 219
 ```
 
-We will go into a lot more detail about how to take advantage of pipes
-in the lecture on data wrangling.
+데이터 랭글링(data wrangling)에 관한 강의에서 파이프를 어떻게 활용할 것인지에 대해 더 자세히 살펴볼 것입니다.
 
-## A versatile and powerful tool
+## 다재다능하고 강력한 도구
 
-On most Unix-like systems, one user is special: the "root" user. You may
-have seen it in the file listings above. The root user is above (almost)
-all access restrictions, and can create, read, update, and delete any
-file in the system. You will not usually log into your system as the
-root user though, since it's too easy to accidentally break something.
-Instead, you will be using the `sudo` command. As its name implies, it
-lets you "do" something "as su" (short for "super user", or "root").
-When you get permission denied errors, it is usually because you need to
-do something as root. Though make sure you first double-check that you
-really wanted to do it that way!
+대부분의 유닉스 시스템에서는 '루트' 사용자란 것이 있습니다.(위에서 언급 됐습니다! 루트 사용자는 모든 액세스 제한을 초과하고 (거의) 시스템의 파일을 만들고 읽고 업데이트하고 삭제 할 수 있습니다. 하지만 실수로 무언가를 망가뜨리기에는 너무 쉽기 때문에 루트 사용자로 시스템에 로그인하지 않을 것입니다. 대신 `sudo`(super-user-do의 줄임말) 명령을 사용할 예정입니다. 권한이 거부되면 보통 루트로서 해야 하기 때문입니다. 하지만 이 기능을 사용하면 권한을 무시할 수 있습니다!
 
-One thing you need to be root in order to do is writing to the `sysfs` file
-system mounted under `/sys`. `sysfs` exposes a number of kernel parameters as
-files, so that you can easily reconfigure the kernel on the fly without
-specialized tools. **Note that sysfs does not exist on Windows or macOS.**
+당신이 루트가 되기 위해서 해야하는 것은 `/sys`에 있는 `sysfs` 시스템 파일 시스템에 쓰는 것입니다.`sysfs`는 몇몇 커널 매개변수를 파일로서 별도의 툴 없이 커널에서 즉시 재구성할 수 있습니다 . **`sysfs`는 Windows 또는 macOS에 존재하지 않습니다.**
 
-For example, the brightness of your laptop's screen is exposed through a file
-called `brightness` under
+예를 들어서, 노트북 화면 밝기를 `brightness`라는 프로그램으로 호출해봅시다.
 
 ```
 /sys/class/backlight
 ```
 
-By writing a value into that file, we can change the screen brightness.
-Your first instinct might be to do something like:
+파일에 값을 기록하면 화면 밝기를 변경할 수 있습니다. 여러분들은 아래와 같이 시도해볼 수 있을 것입니다.
 
 ```console
 $ sudo find -L /sys/class/backlight -maxdepth 2 -name '*brightness*'
@@ -324,70 +188,36 @@ An error occurred while redirecting file 'brightness'
 open: Permission denied
 ```
 
-This error may come as a surprise. After all, we ran the command with
-`sudo`! This is an important thing to know about the shell. Operations
-like `|`, `>`, and `<` are done _by the shell_, not by the individual
-program. `echo` and friends do not "know" about `|`. They just read from
-their input and write to their output, whatever it may be. In the case
-above, the _shell_ (which is authenticated just as your user) tries to
-open the brightness file for writing, before setting that as `sudo
-echo`'s output, but is prevented from doing so since the shell does not
-run as root. Using this knowledge, we can work around this:
+에러가 나타났지만, 겁먹지 마세요! 우리는 `sudo` 명령어를 통해 해결할 수 있습니다. 이것이 셸에 대해서 알아야 하는 이유입니다. `|`,`>`,`<`은 셸을 통해서 사용 가능하지만, 프로그램 자체에선 실행되지 않습니다. `echo`나 다른 프로그램들은 `|`에 대해서 모릅니다. 이들은 그저 정해진 입력을 받고 정해진 출력을 합니다. 위의 경우 셸 (사용자와 마찬가지로 인증 됨)은 밝기 파일을 작성하려고 시도하지만 셸이 루트로 작동하지 않기 때문에 파일을 수도 에코의 출력으로 설정하기 전에 열지 않습니다.이 지식을 사용하여 우리는 다음과 같이 일할 수 있습니다.
 
 ```console
 $ echo 3 | sudo tee brightness
 ```
 
-Since the `tee` program is the one to open the `/sys` file for writing,
-and _it_ is running as `root`, the permissions all work out. You can
-control all sorts of fun and useful things through `/sys`, such as the
-state of various system LEDs (your path might be different):
+`tee` 프로그램은 `/sys`파일을 읽고 실행하고 루트에서 실행됩니다. 루트로 실행되기 때문에 모든 권한이 해결됩니다. 당신은 `/sys`에서 다양하고 재밌는 것들을 제어할 수 있습니다. 예를 들어 다양한 시스템 LED의 상태 (경로가 다를 수 있음)를 제어할 수도 있죠.
 
 ```console
 $ echo 1 | sudo tee /sys/class/leds/input6::scrolllock/brightness
 ```
 
-# Next steps
+# 다음에는...
 
-At this point you know your way around a shell enough to accomplish
-basic tasks. You should be able to navigate around to find files of
-interest and use the basic functionality of most programs. In the next
-lecture, we will talk about how to perform and automate more complex
-tasks using the shell and the many handy command-line programs out
-there.
+이 시점에서 당신은 기본적인 것을 달성할 수 있을만큼 충분히 셸 사용법을 배웠습니다. 원하는 파일을 찾고 대부분의 프로그램의 기본 기능을 사용하려면 주변을 돌아 다니며 이동해야 합니다. 다음 강의에서는 셸과 많은 편리한 명령 프로그램을 사용하여 더 복잡한 작업을 수행하고 자동화하는 방법에 대해 이야기할 것입니다.
 
-# Exercises
+# 연습 문제
 
- 1. Create a new directory called `missing` under `/tmp`.
- 1. Look up the `touch` program. The `man` program is your friend.
- 1. Use `touch` to create a new file called `semester` in `missing`.
- 1. Write the following into that file, one line at a time:
+ 1. `/tmp`에  `missing`이라는 새로운 경로를 만들어 보세요 .
+ 1. `touch`라는 프로그램을 관찰해보세요. `man` 프로그램이 도움이 될겁니다.
+ 1. `touch`를 이용해서 `semester`라는 파일을 `missing` 안에 만들어 보세요.
+ 1. 아래 주어진 것을 그 파일에 써보세요. 단, 한번에 한줄씩
     ```
     #!/bin/sh
     curl --head --silent https://missing.csail.mit.edu
     ```
-    The first line might be tricky to get working. It's helpful to know that
-    `#` starts a comment in Bash, and `!` has a special meaning even within
-    double-quoted (`"`) strings. Bash treats single-quoted strings (`'`)
-    differently: they will do the trick in this case. See the Bash
-    [quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
-    manual page for more information.
- 1. Try to execute the file, i.e. type the path to the script (`./semester`)
-    into your shell and press enter. Understand why it doesn't work by
-    consulting the output of `ls` (hint: look at the permission bits of the
-    file).
- 1. Run the command by explicitly starting the `sh` interpreter, and giving it
-    the file `semester` as the first argument, i.e. `sh semester`. Why does
-    this work, while `./semester` didn't?
- 1. Look up the `chmod` program (e.g. use `man chmod`).
- 1. Use `chmod` to make it possible to run the command `./semester` rather than
-    having to type `sh semester`. How does your shell know that the file is
-    supposed to be interpreted using `sh`? See this page on the
-    [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) line for more
-    information.
- 1. Use `|` and `>` to write the "last modified" date output by
-    `semester` into a file called `last-modified.txt` in your home
-    directory.
- 1. Write a command that reads out your laptop battery's power level or your
-    desktop machine's CPU temperature from `/sys`. Note: if you're a macOS
-    user, your OS doesn't have sysfs, so you can skip this exercise.
+    첫번째 줄을 작동시키는게 꽤 까다로울 것입니다. `#`으로 시작하는 것은 코멘트(comment)고, `!`는 큰 따옴표(`"`)로 둘러쌓인 문자열 내에서도 특별한 의미를 가집니다. 배시(Bash)는 작은 따옴표`'` 문자열과 큰따옴표를 구분합니다. 이것은 매우 헷갈리는 케이스입니다. Bash [인용 관련 메뉴얼 페이지](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)에 더 자세한 정보가 설명돼있습니다.
+ 1. 파일을 실행해보세요. 예를 들어, (`./semester`)라는 경로를 셸에 입력해보세요. 이것이 왜 작동하지 않는지 `ls`를 이용해 파악해보세요. (힌트: 파일의 비트 권한을 확인해보세요.)
+ 1. `sh` 인터프리터로 시작해 명령을 실행하고, `semester` 파일에 첫 인자로 주세요. (즉 `sh semester` 이렇게!). `./semester`는 안되는데, 앞에 거는 왜 실행이 될까요?
+ 1. `chmod` 프로그램을 살펴보세요. (`man chmod`를 사용해보세요.)
+ 1. `chmod`를 활용해 `sh semester` 대신에 `./semester`을 사용 가능하게 해보세요. `sh`을 이용해 이 파일을 해석해야 한다는 것을 셸이 어떻게 알까요? 이 페이지에서 [셔뱅(shebang)](https://en.wikipedia.org/wiki/Shebang_(Unix))에 대해서 더 알아보세요.
+ 1. `|` 와 `>`를 사용해 `semester`별 "last modified" 날짜 출력을 홈 디렉토리에 `last-modified.txt`라는 파일에 작성하세요.
+ 1. 노트북 배터리의 전원 레벨 또는 데스크탑 컴퓨터의 CPU 온도를 `/sys`에서 읽는 명령을 작성하십시오. 참고: 만약 macOS 사용자라면, 당신의 OS는 sysfs가 없기 때문에, 이 예제를 건너뛸 수 있습니다.
