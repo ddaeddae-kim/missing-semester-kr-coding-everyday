@@ -7,47 +7,24 @@ video:
   aspect: 56.25
   id: 2sjqTHE0zok
 ---
+버전 컨트롤 시스템 (VCSs)는 소스 코드(혹은 다른 파일, 폴더들의 모음)의 변화를 추적하기 위해 사용되는 도구입니다. 이름이 암시하는 것과 같이, 이러한 도구들은 변화의 기록을 보존하는 데 도움을 줍니다; 뿐만 아니라, 협업을 더욱 용이하게 만들기도 합니다. VCSs는 폴더와 그 내용의 변화를 일련의 스냅샷으로 저장하며, 각 스냅샷은 최상위 저장소에 속하는 파일/폴더의 전체 상태를 캡슐화합니다. 또한 VCSs는 누가 각 스냅샷을 만들고, 각 스냅샷에 연관된 메세지 등의 메타테이터를 유지합니다.
 
-Version control systems (VCSs) are tools used to track changes to source code
-(or other collections of files and folders). As the name implies, these tools
-help maintain a history of changes; furthermore, they facilitate collaboration.
-VCSs track changes to a folder and its contents in a series of snapshots, where
-each snapshot encapsulates the entire state of files/folders within a top-level
-directory. VCSs also maintain metadata like who created each snapshot, messages
-associated with each snapshot, and so on.
+왜 버전 컨트롤이 유용한 걸까요? 비록 당신이 혼자 일한다고 하더라도, 이러한 도구들은 프로젝트의 이전 스냅샷을 볼 수 있게 하고, 왜 이러한 변화가 이루어졌는지에 대한 로그를 기록하고, 개발할 때 별도의 브랜치에서 작업하는 것 외에도 훨씬 더 많은 일들을 할 수 있게 해줍니다. 다른 이들과 일할 때라면, 다른 사람들이 변경한 것을 보는 만큼 동시에 개발할 때의 충돌을 해결하는 귀중한 도구가 됩니다.
 
-Why is version control useful? Even when you're working by yourself, it can let
-you look at old snapshots of a project, keep a log of why certain changes were
-made, work on parallel branches of development, and much more. When working
-with others, it's an invaluable tool for seeing what other people have changed,
-as well as resolving conflicts in concurrent development.
+또한 현대의 VCSs는 쉽게(그리고 종종 자동으로) 이러한 질문에 대답할 수 있게 해줍니다 : 
 
-Modern VCSs also let you easily (and often automatically) answer questions
-like:
+- 누가 이 모듈을 작성했는가?
+- 언제 특정 파일의 특정 라인이 수정되었는가? 누가 수정했고, 왜 이것이 수정되었는가?
+- 지난 1000개의 수정에서, 언제/왜 특정한 단위 테스트가 동작을 멈추는가?
 
-- Who wrote this module?
-- When was this particular line of this particular file edited? By whom? Why
-  was it edited?
-- Over the last 1000 revisions, when/why did a particular unit test stop
-working?
-
-While other VCSs exist, **Git** is the de facto standard for version control.
-This [XKCD comic](https://xkcd.com/1597/) captures Git's reputation:
+다른 VCSs들이 있음에도, **Git**은 버전 컨트롤의 사실상 표준입니다.
+이 [XKCD comic](https://xkcd.com/1597/) 은 Git의 특징을 잘 짚고 있습니다:
 
 ![xkcd 1597](https://imgs.xkcd.com/comics/git.png)
 
-Because Git's interface is a leaky abstraction, learning Git top-down (starting
-with its interface / command-line interface) can lead to a lot of confusion.
-It's possible to memorize a handful of commands and think of them as magic
-incantations, and follow the approach in the comic above whenever anything goes
-wrong.
+Git의 인터페이스는 다소 추상적이기 때문에(leaky abstraction), Git을 하향식(top-down)으로 배우는 것(커맨드 라인 인터페이스부터 시작하는 것)은 많은 혼란을 일으킬 수 있습니다. 약간의 명령어만을 기억하고 그것들을 마치 주문처럼 생각하여, 언제든 무엇인가 잘못된다면 위 만화의 내용을 따라하는 것이 더 좋습니다.
 
-While Git admittedly has an ugly interface, its underlying design and ideas are
-beautiful. While an ugly interface has to be _memorized_, a beautiful design
-can be _understood_. For this reason, we give a bottom-up explanation of Git,
-starting with its data model and later covering the command-line interface.
-Once the data model is understood, the commands can be better understood, in
-terms of how they manipulate the underlying data model.
+Git이 못생긴 인터페이스를 갖고 있는 것은 인정하지만, 내재된 디자인과 아이디어는 아름답습니다. 못생긴 인터페이스는 _기억될_ 필요가 있지만, 아름다운 디자인은 _이해될_ 수 있습니다. 이러한 이유로, 우리는 Git에 대해서, 먼저 데이터 모델로 시작하여 나중에 커맨드 라인 인터페이스를 다루는 상향식(bottom-up)으로 설명할 것입니다. 일단 데이터 모델을 이해하고 나면, 어떻게 명령어가 데이터 모델을 다루는지에 대해 더 잘 이해하게 될 것입니다.
 
 # Git's data model
 
